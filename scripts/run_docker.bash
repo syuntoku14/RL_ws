@@ -5,5 +5,5 @@ docker run --rm -it --privileged \
 	-e DISPLAY=$DISPLAY \
 	--name rl \
 	--entrypoint "" \
-	syuntoku/dl_remote bash -c "umask 002 && zsh"
+	syuntoku/dl_remote bash -c "umask 0002 && zsh"
 	# --runtime=nvidia \
