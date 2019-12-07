@@ -4,6 +4,11 @@
 
 Main Dockerfile is based on: https://qiita.com/namahoge/items/cf39320e9acc5b96d1a6
 
+Build:
+```
+docker build -t <name>/<tag> .
+```
+
 Launch a container:
 ```
 ./scripts/run_docker.bash
