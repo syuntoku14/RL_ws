@@ -4,6 +4,7 @@ docker run --rm -it --privileged \
 	-v ~/RL_ws:/root/RL_ws \
 	-e DISPLAY=$DISPLAY \
 	--name rl \
+	--shm-size 16G \
 	--entrypoint "" \
 	syuntoku/dl_remote bash -c "umask 0002 && zsh"
 	# --runtime=nvidia \

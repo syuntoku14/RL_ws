@@ -30,10 +30,50 @@ RUN source /root/.zshrc && \
 # X window, options ----------------
 RUN apt-get install -y vim xvfb x11vnc python-opengl
 RUN source /root/.zshrc && \
-    pip install setuptools jupyterlab
+    pip install setuptools 
 
 RUN apt-get install -y tmux icewm
 
 WORKDIR /root
 
-# CMD ["zsh"]
+# rl libraries ----------------
+RUN source /root/.zshrc && \
+    pip install gym pybullet matplotlib
+
+# uncomment jupyternotebook or jupyter lab if you want
+# uncomment corresponding vim extension if use vim extension
+
+# install jupyternotebook ----------------
+# RUN source /root/.zshrc && \
+#     pip install jupyter && \
+#     jupyter notebook --generate-config
+# RUN echo "c = get_config()" >> ~/.jupyter/jupyter_notebook_config.py
+# RUN echo "c.NotebookApp.ip = '0.0.0.0'" >> ~/.jupyter/jupyter_notebook_config.py
+# RUN echo "c.NotebookApp.open_browser = False" >> ~/.jupyter/jupyter_notebook_config.py
+# RUN echo "c.NotebookApp.port = 5000" >> ~/.jupyter/jupyter_notebook_config.py
+
+# set jupyter vim extension ----------------
+# RUN source /root/.zshrc && \
+#     pip install jupyter_contrib_nbextensions && \
+#     jupyter contrib nbextension install --user
+# RUN source /root/.zshrc && \
+#     mkdir -p $(jupyter --data-dir)/nbextensions
+# RUN source /root/.zshrc && \
+#     cd $(jupyter --data-dir)/nbextensions && \
+#     git clone https://github.com/lambdalisue/jupyter-vim-binding vim_binding
+# RUN source /root/.zshrc && \
+#     jupyter nbextension enable vim_binding/vim_binding
+# RUN sed -i "/.*Ctrl-C.*:/d" ~/.local/share/jupyter/nbextensions/vim_binding/vim_binding.js
+# RUN sed -i "/.*'Shift-Esc'.*:/a\      \'Ctrl-C\': CodeMirror.prototype.leaveInsertMode," ~/.local/share/jupyter/nbextensions/vim_binding/vim_binding.js
+
+# install jupyterlab ----------------
+# RUN source /root/.zshrc && \
+#     jupyterlab
+# set jupyterlab vim extension ----------------
+# RUN apt-get install -y nodejs npm 
+# RUN source /root/.zshrc && \ 
+#     jupyter labextension install jupyterlab_vim
+# RUN source /root/.zshrc && \ 
+#     jupyter labextension install @lckr/jupyterlab_variableinspector
+
+CMD ["zsh"]
