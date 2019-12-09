@@ -2,7 +2,7 @@
 
 ## Docker
 
-Main Dockerfile is based on: https://qiita.com/namahoge/items/cf39320e9acc5b96d1a6
+Main Dockerfile is based on: https://github.com/ikeyasu/docker-reinforcement-learning
 
 Build:
 ```
@@ -21,7 +21,7 @@ Run vnc server inside the container:
 /root/RL_ws/scripts/run_vnc.bash
 ```
 
-Access vnc from [chrome vnc extension](https://chrome.google.com/webstore/detail/vnc%C2%AE-viewer-for-google-ch/iabmpiboiopbgfabjmgeedhcmjenhbla?utm_source=chrome-app-launcher-info-dialog).
+You can access the desktop from any browser localhost:6080 
 
 ## jupyter notebook
 
