@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 tmux rename-window main
 tmux split-window -h

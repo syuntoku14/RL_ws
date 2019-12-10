@@ -62,6 +62,13 @@ RUN sed -i "/.*Ctrl-C.*:/d" ~/.local/share/jupyter/nbextensions/vim_binding/vim_
 RUN sed -i "/.*'Shift-Esc'.*:/a\      \'Ctrl-C\': CodeMirror.prototype.leaveInsertMode," ~/.local/share/jupyter/nbextensions/vim_binding/vim_binding.js
 
 ############################################
+# Gym
+############################################
+
+RUN pip install gym 'gym[atari]' 'gym[box2d]' 'gym[classic_control]'
+RUN pip install matplotlib
+
+############################################
 # Other tools
 ############################################
 
