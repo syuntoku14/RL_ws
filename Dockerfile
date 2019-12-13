@@ -33,6 +33,7 @@ ENV PATH /root/miniconda/bin:$PATH
 ############################################
 
 RUN conda install pytorch torchvision cudatoolkit=9.2 -c pytorch  # for cuda9.2
+RUN pip install tensorboardX
 
 ############################################
 # PyBullet
@@ -67,6 +68,13 @@ RUN sed -i "/.*'Shift-Esc'.*:/a\      \'Ctrl-C\': CodeMirror.prototype.leaveInse
 
 RUN pip install gym 'gym[atari]' 'gym[box2d]' 'gym[classic_control]'
 RUN pip install matplotlib
+
+############################################
+# Apex
+############################################
+
+RUN git clone https://github.com/NVIDIA/apex
+RUN cd apex && pip install -v --no-cache-dir ./
 
 ############################################
 # Other tools

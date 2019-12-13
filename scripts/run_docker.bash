@@ -17,6 +17,8 @@ docker run --rm -it --privileged \
 	-p 6080:6080 \
 	-p 8888:8888 \
 	-v ~/RL_ws:/root/RL_ws \
+	-v ~/active_vision_manipulation:/root/active_vision_manipulation \
+	-v ~/amdim-public:/root/amdim-public \
 	-e DISPLAY=:0 \
 	--name rl \
 	--shm-size 16G \
@@ -24,7 +26,7 @@ docker run --rm -it --privileged \
 	-e NVIDIA_DRIVER_CAPABILITIES=all \
 	--gpus=all \
 	--entrypoint "" \
-	syuntoku/rl_ws bash -c "umask 0002 && bash"
+	syuntoku/rl_ws:active_vision bash -c "umask 0002 && bash"
 }
 
 getopts "n" OPT
