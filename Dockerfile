@@ -33,6 +33,7 @@ ENV PATH /root/miniconda/bin:$PATH
 ############################################
 
 RUN conda install pytorch torchvision cudatoolkit=9.2 -c pytorch  # for cuda9.2
+RUN pip install tensorboard
 
 ############################################
 # PyBullet
@@ -72,7 +73,7 @@ RUN pip install matplotlib
 # Other tools
 ############################################
 
-RUN apt-get update && apt-get install -y mlocate less tmux vim lxterminal mesa-utils\
+RUN apt-get update && apt-get install -y mlocate less tmux vim lxterminal mesa-utils python-opengl\
     && updatedb\
     && apt-get clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
