@@ -66,8 +66,14 @@ RUN sed -i "/.*'Shift-Esc'.*:/a\      \'Ctrl-C\': CodeMirror.prototype.leaveInse
 # Gym
 ############################################
 
-RUN pip install gym 'gym[atari]' 'gym[box2d]' 'gym[classic_control]'
+RUN pip install gym 'gym[all]'
 RUN pip install matplotlib
+
+############################################
+# Debugging tool
+############################################
+
+RUN pip --no-cache-dir install ptvsd
 
 ############################################
 # Other tools

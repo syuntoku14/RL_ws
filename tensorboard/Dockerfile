@@ -4,5 +4,5 @@ RUN pip install tensorflow
 
 WORKDIR /logs
 
-ENTRYPOINT ["tensorboard", "--logdir", "/logs"]
+ENTRYPOINT ["tensorboard", "--logdir", "/logs", "--bind_all"]
 CMD []
