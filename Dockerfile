@@ -32,7 +32,7 @@ ENV PATH /root/miniconda/bin:$PATH
 # PyTorch ----------------
 ############################################
 
-RUN conda install pytorch torchvision cudatoolkit=9.2 -c pytorch  # for cuda9.2
+RUN pip install torch torchvision
 RUN pip install tensorboard
 
 ############################################
