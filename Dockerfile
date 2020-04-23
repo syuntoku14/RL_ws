@@ -79,7 +79,12 @@ RUN pip --no-cache-dir install ptvsd
 # Other tools
 ############################################
 
-RUN apt-get update && apt-get install -y mlocate less tmux vim lxterminal mesa-utils python-opengl\
+RUN apt-get update && apt-get install -y mlocate less tmux vim lxterminal mesa-utils python-opengl task-spooler\
+    && updatedb\
+    && apt-get clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
+
+# tools to convert ipynb to pdf
+RUN apt-get update && apt-get install -y pandoc texlive-xetex texlive-fonts-recommended texlive-generic-recommended texlive-generic-extra\
     && updatedb\
     && apt-get clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
